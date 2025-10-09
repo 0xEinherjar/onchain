@@ -46,9 +46,9 @@ useAccountEffect({
           <div class="c-dropdown-header__group">
             <h3 class="c-dropdown-header__title">Protocol</h3>
             <ul class="c-dropdown-header__menu">
-              <li class="c-dropdown-header__menu-item"><a href="">Website</a></li>
-              <li class="c-dropdown-header__menu-item"><a href="">Documentation</a></li>
-              <li class="c-dropdown-header__menu-item"><a href="">Vote</a></li>
+              <li class="c-dropdown-header__menu-item"><a href="https://onchain-app.netlify.app/#/">Website</a></li>
+              <li class="c-dropdown-header__menu-item"><a href="https://onchain-docs.netlify.app/">Documentation</a></li>
+              <li class="c-dropdown-header__menu-item"><a href="https://onchain-vote.netlify.app/#/">Vote</a></li>
             </ul>
           </div>
           <div class="c-dropdown-header__line"></div>
@@ -71,8 +71,8 @@ useAccountEffect({
         </div>
       </div>
       <nav class="header__nav u-flex-line">
-        <a class="header__nav-item" target="_blank" href="#">Vote</a>
-        <a class="header__nav-item" target="_blank" href="#">Docs</a>
+        <a class="header__nav-item" target="_blank" href="https://onchain-vote.netlify.app/#/">Vote</a>
+        <a class="header__nav-item" target="_blank" href="https://onchain-docs.netlify.app/">Docs</a>
       </nav>
       <chain/>
     </header>

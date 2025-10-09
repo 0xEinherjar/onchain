@@ -251,10 +251,10 @@ onBeforeMount(async () => {
         <div v-if="profile.role == 2" class="profile__info u-flex-line-center">
           <icon iconClass="c-icon" name="info1"/>
           <p class="profile__info-text-desktop">
-            Profile under evaluation. Check the <a class="profile__info-link u-font-500" href="#">voting</a> page to learn more.
+            Profile under evaluation. Check the <a class="profile__info-link u-font-500" href="https://onchain-vote.netlify.app/#/">voting</a> page to learn more.
           </p>
           <p class="profile__info-text-mobile">
-            <a class="profile__info-link u-font-500" href="#">Profile under evaluation.</a>
+            <a class="profile__info-link u-font-500" href="https://onchain-vote.netlify.app/#/">Profile under evaluation.</a>
           </p>
         </div>
         <template v-if="navActive == 'Publications'">

@@ -26,9 +26,9 @@ function logout() {
         <div class="c-dropdown__group">
           <h3 class="c-dropdown__title">Protocol</h3>
           <ul class="c-dropdown__menu">
-            <li class="c-dropdown__menu-item"><a href="#">Website</a></li>
-            <li class="c-dropdown__menu-item"><a href="#">Documentation</a></li>
-            <li class="c-dropdown__menu-item"><a href="#">Voting</a></li>
+            <li class="c-dropdown__menu-item"><a href="https://onchain-app.netlify.app/#/">Website</a></li>
+            <li class="c-dropdown__menu-item"><a href="https://onchain-docs.netlify.app/">Documentation</a></li>
+            <li class="c-dropdown__menu-item"><a href="https://onchain-vote.netlify.app/#/">Voting</a></li>
           </ul>
         </div>
         <div class="c-dropdown__line"></div>
