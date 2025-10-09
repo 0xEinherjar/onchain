@@ -1,0 +1,70 @@
+import { storeToRefs } from "pinia";
+import { useUtils } from "./useUtils.js";
+import { useReadOnchainContract } from "./useReadOnchainContract";
+import { useReadProfileContract } from "./useReadProfileContract.js";
+import { usePrepare } from "./prepare.js";
+import { useAccountStore } from "../store/account.js";
+import { BaseError, ContractFunctionRevertedError } from "viem";
+const { isAddress, formatToNumber } = useUtils();
+const { readProfileContract } = useReadProfileContract();
+const { readOnchainContract } = useReadOnchainContract();
+const prepare = usePrepare();
+
+export const useProfile = () => {
+  async function getProfile(profile) {
+    try {
+      const { account } = storeToRefs(useAccountStore());
+      if (!isAddress(profile)) {
+        const address = await readOnchainContract("ownerOfHandle", [profile]);
+        if (address == "0x0000000000000000000000000000000000000000")
+          return { success: false, message: "profile address not found" };
+        profile = address;
+      }
+      const [profileId, role, postLength] = await readOnchainContract(
+        "getUserByAddress",
+        [profile]
+      );
+      const profileInfo = await readProfileContract("getProfileById", [
+        formatToNumber(profileId),
+      ]);
+      const data = await prepare.profile(profileInfo);
+      if (!data) return { success: false, message: "" };
+      data.id = formatToNumber(profileId);
+      data.role = formatToNumber(role);
+      data.postLength = formatToNumber(postLength);
+      data.owner = profile;
+      if (account.value.isConnected && account.value.hasAccount) {
+        const [ownerId] = await readOnchainContract("getUserByAddress", [
+          account.value.wallet,
+        ]);
+        const followInfo = await readProfileContract("getFollowInfo", [
+          formatToNumber(ownerId),
+          formatToNumber(profileId),
+        ]);
+        Object.assign(data, {
+          isFollowing: followInfo[0],
+          isFollower: followInfo[1],
+        });
+      }
+      return { success: true, data };
+    } catch (error) {
+      if (error instanceof BaseError) {
+        const revertError = error.walk(
+          (err) => err instanceof ContractFunctionRevertedError
+        );
+        if (revertError instanceof ContractFunctionRevertedError) {
+          return {
+            success: false,
+            message: revertError.data?.errorName ?? "",
+          };
+        }
+      }
+      return {
+        success: false,
+        message: "",
+      };
+    }
+  }
+
+  return { getProfile };
+};

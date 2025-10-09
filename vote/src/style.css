@@ -1,0 +1,297 @@
+:root {
+  /* Step -4: 10.8012px → 12.3442px */
+  --step--4: clamp(0.6751rem, 0.5979rem + 0.1929vw, 0.7715rem);
+  /* Step -3: 11.5248px → 13.1712px */
+  --step--3: clamp(0.7203rem, 0.638rem + 0.2058vw, 0.8232rem);
+  /* Step -2: 12.297px → 14.0537px */
+  --step--2: clamp(0.7686rem, 0.6807rem + 0.2196vw, 0.8784rem);
+  /* Step -1: 13.1209px → 14.9953px */
+  --step--1: clamp(0.8201rem, 0.7263rem + 0.2343vw, 0.9372rem);
+  /* Step 0: 14px → 16px */
+  --step-0: clamp(0.875rem, 0.775rem + 0.25vw, 1rem);
+  /* Step 1: 14.938px → 17.072px */
+  --step-1: clamp(0.9336rem, 0.8269rem + 0.2668vw, 1.067rem);
+  /* Step 2: 15.9388px → 18.2158px */
+  --step-2: clamp(0.9962rem, 0.8823rem + 0.2846vw, 1.1385rem);
+  /* Step 3: 17.0067px → 19.4363px */
+  --step-3: clamp(1.0629rem, 0.9414rem + 0.3037vw, 1.2148rem);
+  /* Step 4: 18.1462px → 20.7385px */
+  --step-4: clamp(1.1341rem, 1.0045rem + 0.324vw, 1.2962rem);
+  /* Step 5: 17.0067px → 37.8975px
+  --step-5: clamp(1.0629rem, 0.0184rem + 2.6113vw, 2.3686rem); */
+  /* Step 5: 25.2285px → 39.8131px */
+  --step-5: clamp(1.5768rem, 0.8475rem + 1.8231vw, 2.4883rem);
+}
+:root {
+  /* Background color */
+  --bg-color-primary: #08080a;
+  --bg-color-secondary: #1a1b1d;
+  --bg-color-tertiary: #4e4f51;
+  --bg-color-quaternary: #f4f4f4;
+  --bg-color-quinary: #71767b;
+
+  /* text color */
+  --text-color-primary: #f4f4f4;
+  --text-color-secondary: #71767b;
+  --text-color-tertiary: #f4f4f466;
+  --text-color-quaternary: #e8eaed;
+  --text-color-quinary: #1a1b1d;
+
+  --color-red: #ff6370;
+  --color-blue-light: #96e7fe;
+  --color-blue: #0177fb;
+  --color-green: #2fc687;
+  --color-yellow: #ffde6b;
+  --color-icon-primary: #bdc1c6;
+}
+.light-mode:root {
+  --bg-color-primary: #ffffff;
+  --bg-color-secondary: #f3f8fd;
+
+  --bg-color-quaternary: #1a1b1d;
+  --bg-color-quinary: #bdc1c6;
+
+  --text-color-primary: #292d32;
+  --text-color-secondary: #292d3266;
+  --text-color-tertiary: #292d3266;
+
+  --text-color-quaternary: #1a1b1d;
+  --text-color-quinary: #28292b;
+
+  --color-icon-primary: #292d32;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  cursor: pointer;
+  color: inherit;
+}
+svg {
+  display: inline-block;
+  vertical-align: middle;
+}
+img {
+  display: block;
+  max-width: 100%;
+}
+input,
+button {
+  border: none;
+  background-color: transparent;
+  outline: none;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+button {
+  cursor: pointer;
+}
+html,
+body {
+  height: auto;
+}
+body {
+  font-size: var(--step-0);
+  background-color: var(--bg-color-primary);
+  color: var(--text-color-primary);
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  line-height: 150%;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100dvh;
+  padding-inline: 40px;
+  --width: 1440px;
+  display: grid;
+  grid-template-columns:
+    calc(50vw - calc(var(--width) / 2))
+    [main-start] 1fr [main-end]
+    calc(50vw - calc(var(--width) / 2));
+}
+#app {
+  grid-column: main;
+}
+.u-text-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.u-margin-auto {
+  margin-inline: auto;
+}
+.u-flex-line,
+.u-flex-line-center,
+.u-flex-line-between {
+  display: flex;
+  align-items: center;
+}
+.u-flex-line-between {
+  justify-content: space-between;
+}
+.u-flex-line-center {
+  justify-content: center;
+}
+.u-font-500 {
+  font-weight: 500 !important;
+}
+.u-text-danger {
+  color: var(--color-red);
+}
+.u-text-center {
+  text-align: center;
+}
+.is-hidden {
+  display: none !important;
+}
+.u-cursor-pointer {
+  cursor: pointer;
+}
+.c-icon,
+.c-icon--small {
+  color: var(--color-icon-primary);
+}
+.c-icon {
+  height: 24px;
+  width: 24px;
+}
+.c-icon--small {
+  height: 20px;
+  width: 20px;
+}
+.c-icon--fill-none {
+  fill: none;
+}
+.c-text-disable {
+  opacity: 0.4;
+}
+.u-pointer {
+  cursor: pointer;
+}
+.u-fluid {
+  width: 100%;
+}
+.c-modal--backdrop {
+  background-color: rgba(0, 0, 0, 0.9);
+  position: fixed;
+  inset: 0 0 0 0;
+  z-index: 101;
+}
+.c-modal {
+  width: min(520px, 100%);
+  border-radius: 20px;
+  background-color: var(--bg-color-secondary);
+  display: grid;
+  gap: 32px;
+}
+.c-modal__title {
+  gap: 12px;
+}
+.c-modal__content {
+  padding: 32px 24px;
+  display: grid;
+  gap: 32px;
+}
+.c-modal__footer {
+  padding-inline: 24px;
+  padding-bottom: 32px;
+}
+.c-modal:has(.c-modal__footer) .c-modal__content {
+  padding-bottom: 0;
+}
+.c-button {
+  --b-bg: var(--bg-color-quaternary);
+  --b-color: var(--text-color-quinary);
+  --b-ra: 12px;
+  --b-fs: var(--step--1);
+  --b-fw: 500;
+  --b-px: 24px;
+  --b-he: 40px;
+  --b-ga: 12px;
+  border-radius: var(--b-ra);
+  background-color: var(--b-bg);
+  color: var(--b-color);
+  font-size: var(--b-fs);
+  font-weight: var(--b-fw);
+  padding-inline: var(--b-px);
+  height: var(--b-he);
+  gap: var(--b-ga);
+}
+.c-button--large {
+  --b-he: 48px;
+}
+.c-button--extra-large {
+  --b-he: 54px;
+  --b-fs: var(--step-0);
+  --b-fw: 400;
+}
+.l-section {
+  display: grid;
+  gap: 48px;
+  margin-top: 24px;
+}
+.l-section__title {
+  font-size: 24px;
+  font-weight: 500;
+}
+.l-section__header {
+  display: grid;
+  gap: 24px;
+}
+.l-section__subtitle {
+  color: var(--text-color-secondary);
+  font-size: var(--step--1);
+}
+@media (width < 600px) {
+  body {
+    padding-inline: 24px;
+  }
+  .l-section {
+    gap: 24px;
+    margin-top: 16px;
+  }
+  .l-section__header {
+    gap: 16px;
+  }
+  .l-section__title {
+    font-size: 17px;
+  }
+  .header {
+    height: auto;
+    padding-block: 16px;
+    gap: 24px;
+  }
+  .c-icon {
+    height: 22px;
+    width: 22px;
+  }
+  .c-button--extra-large {
+    --b-he: 40px;
+    --b-ra: 8px;
+    --b-fw: 500;
+  }
+  .c-modal {
+    height: 100dvh;
+    border-radius: 0;
+    grid-template-rows: auto 1fr;
+    gap: 24px;
+  }
+  .c-modal__content {
+    padding: 24px 24px 0 24px;
+    align-content: flex-start;
+    gap: 24px;
+  }
+  .c-modal__footer {
+    align-self: flex-end;
+  }
+}

@@ -1,0 +1,112 @@
+:root {
+  /* Background color */
+  --bg-color-primary: #1a1b1d;
+  --bg-color-secondary: #28292b;
+  --bg-color-tertiary: #4e4f51;
+  --bg-color-quaternary: #f4f4f4;
+  --bg-color-quinary: #bdc1c6;
+
+  --text-color-primary: #f4f4f4;
+
+  /* Step -4: 10.8012px → 12.3442px */
+  --step--4: clamp(0.6751rem, 0.5979rem + 0.1929vw, 0.7715rem);
+  /* Step -3: 11.5248px → 13.1712px */
+  --step--3: clamp(0.7203rem, 0.638rem + 0.2058vw, 0.8232rem);
+  /* Step -2: 12.297px → 14.0537px */
+  --step--2: clamp(0.7686rem, 0.6807rem + 0.2196vw, 0.8784rem);
+  /* Step -1: 13.1209px → 14.9953px */
+  --step--1: clamp(0.8201rem, 0.7263rem + 0.2343vw, 0.9372rem);
+  /* Step 0: 14px → 16px */
+  --step-0: clamp(0.875rem, 0.775rem + 0.25vw, 1rem);
+  /* Step 1: 14.938px → 17.072px */
+  --step-1: clamp(0.9336rem, 0.8269rem + 0.2668vw, 1.067rem);
+  /* Step 2: 15.9388px → 18.2158px */
+  --step-2: clamp(0.9962rem, 0.8823rem + 0.2846vw, 1.1385rem);
+  /* Step 3: 17.0067px → 19.4363px */
+  --step-3: clamp(1.0629rem, 0.9414rem + 0.3037vw, 1.2148rem);
+  /* Step 4: 18.1462px → 20.7385px */
+  --step-4: clamp(1.1341rem, 1.0045rem + 0.324vw, 1.2962rem);
+  /* Step 5: 25.2285px → 39.8131px */
+  --step-5: clamp(1.5768rem, 0.8475rem + 1.8231vw, 2.4883rem);
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  cursor: pointer;
+  color: inherit;
+}
+svg {
+  display: inline-block;
+  vertical-align: middle;
+}
+img {
+  display: block;
+  max-width: 100%;
+}
+input,
+button {
+  border: none;
+  background-color: transparent;
+  outline: none;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+button {
+  cursor: pointer;
+}
+html,
+body {
+  height: auto;
+}
+body {
+  font-size: var(--step-0);
+  font-family: system-ui, -apple-system, "Inter", sans-serif;
+  font-weight: 400;
+  line-height: 150%;
+  color: var(--bg-color-secondary);
+  -webkit-font-smoothing: antialiased;
+  background-color: #1a1b1d;
+  color: #ececec;
+}
+#app {
+  min-height: 100vh;
+  --width: 1440px;
+  display: grid;
+  grid-template-columns:
+    calc(50vw - calc(var(--width) / 2))
+    [main-start] 1fr [main-end]
+    calc(50vw - calc(var(--width) / 2));
+}
+.u-text-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.u-flex-line,
+.u-flex-line-center,
+.u-flex-line-between {
+  display: flex;
+  align-items: center;
+}
+.u-flex-line-between {
+  justify-content: space-between;
+}
+.u-flex-line-center {
+  justify-content: center;
+}
+.u-font-500 {
+  font-weight: 500 !important;
+}

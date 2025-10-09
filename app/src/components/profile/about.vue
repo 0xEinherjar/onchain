@@ -1,0 +1,144 @@
+<script setup>
+import { computed } from "vue";
+import { useUtils } from "../../composables/useUtils.js";
+import { Icon } from "../";
+const { profile } = defineProps(["profile"]);
+const { truncateAddress, formatLinkDisplay } = useUtils();
+
+const biography = computed(() => {
+  return String(profile.biography).split("\n");
+});
+
+const date = computed(() => {
+  return new Intl.DateTimeFormat("en-US", {
+    year: "numeric",
+    month: "short",
+  }).format(new Date(profile.createdAt));
+});
+</script>
+<!-- prettier-ignore -->
+<template>
+  <div class="about">
+    <section v-if="profile?.biography" class="about__section">
+      <h4 class="about__title u-font-500">Biography</h4>
+      <p class="about__paragraph">
+        <template v-for="item in biography">
+          <template v-if="item.length > 0">{{ item }}</template>
+          <template v-else><br></template>
+        </template>
+      </p>
+    </section>
+    <ul class="about__list u-flex-line">
+      <li class="about__list-item u-font-500 u-flex-line">
+        <icon iconClass="c-icon" name="profile1"/>
+        <span>{{ profile?.following }} <span class="about__list-text">Following</span></span>
+      </li>
+      <li class="about__list-item u-font-500 u-flex-line">
+        <icon iconClass="c-icon" name="profile1"/>
+        <span>{{ profile?.followers }} <span class="about__list-text">Followers</span></span>
+      </li>
+    </ul>
+    <section class="about__section">
+      <h4 class="about__title u-font-500">Links</h4>
+      <ul class="about__list u-flex-line">
+        <li v-if="profile" class="about__list-item u-font-500 u-flex-line">
+          <icon iconClass="c-icon" name="link"/>
+          <span>@{{ profile?.handle ? profile?.handle : truncateAddress(profile?.owner) }}</span>
+        </li>
+        <li v-if="profile.links.website">
+          <a class="about__list-item u-font-500 u-flex-line" :href="profile.links.website" target="_blank" rel="noopener noreferrer">
+            <icon iconClass="c-icon" name="website"/>
+            <span>{{ formatLinkDisplay(profile.links.website) }}</span>
+          </a>
+        </li>
+        <li v-if="profile.links.twitter">
+          <a class="about__list-item u-font-500 u-flex-line" :href="`http://x.com/${profile.links.twitter}`" target="_blank" rel="noopener noreferrer">
+            <icon iconClass="c-icon" name="x"/>
+            <span>{{ profile.links.twitter }}</span>
+          </a>
+        </li>
+        <li v-if="profile.links.twitch">
+          <a class="about__list-item u-font-500 u-flex-line" :href="`https://www.twitch.tv/${profile.links.twitch}`" target="_blank" rel="noopener noreferrer">
+            <icon iconClass="c-icon" name="twitch"/>
+            <span>{{ profile.links.twitch }}</span>
+          </a>
+        </li>
+        <li v-if="profile.links.youtube">
+          <a class="about__list-item u-font-500 u-flex-line" :href="`https://www.youtube.com/@${profile.links.youtube}`" target="_blank" rel="noopener noreferrer">
+            <icon iconClass="c-icon" name="youtube"/>
+            <span>{{ profile.links.youtube }}</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+    <ul class="about__details u-flex-line">
+      <li v-if="profile.hasSubscription" class="about__details-item u-font-500 u-flex-line">
+        <icon iconClass="c-icon" name="verify"/>
+        <span>Premium</span>
+      </li>
+      <li v-else class="about__details-item u-font-500 u-flex-line">
+        <icon iconClass="c-icon" name="profile"/>
+        <span>Member only</span>
+      </li>
+      <li class="about__details-item u-font-500 u-flex-line">
+        <icon iconClass="c-icon" name="calendar"/>
+        <span>Member since {{ date }}</span>
+      </li>
+      <li v-if="profile?.location" class="about__details-item u-font-500 u-flex-line">
+        <icon iconClass="c-icon" name="location"/>
+        <span>{{ profile.location }}</span>
+      </li>
+    </ul>
+  </div>
+</template>
+<style>
+.about {
+  padding-block: 48px;
+  display: grid;
+  gap: 42px;
+}
+.about__section {
+  display: grid;
+  gap: 24px;
+}
+.about__paragraph {
+  color: var(--text-color-secondary);
+  width: min(780px, 100%);
+}
+.about__list {
+  gap: 40px;
+}
+.about__details-item,
+.about__list-item {
+  gap: 12px;
+}
+.about__list-text {
+  color: var(--text-color-secondary);
+  margin-left: 2px;
+}
+.about__details {
+  padding: 24px 32px;
+  background-color: var(--bg-color-secondary);
+  gap: 32px;
+  border-radius: 12px;
+}
+@media (width < 600px) {
+  .about {
+    gap: 32px;
+    padding-block: 32px;
+  }
+  .about__section {
+    gap: 16px;
+  }
+  .about__list {
+    gap: 24px;
+  }
+  .about__details {
+    padding: 0;
+    gap: 32px;
+    background-color: transparent;
+    flex-direction: column;
+    align-items: flex-start !important;
+  }
+}
+</style>
