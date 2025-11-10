@@ -10,7 +10,7 @@ export const config = createConfig({
   connectors: [metaMask(), binanceWallet(), coinbaseWallet()],
   transports: {
     [baseSepolia.id]: http(
-      "https://special-special-telescope.base-sepolia.quiknode.pro/0c45fdba0a2cb850c282df0417a217f67ea8fbc6"
+      "https://little-dawn-log.base-sepolia.quiknode.pro/e126f498cf283479c141af176f2327cf2a032e8b/"
     ),
   },
 });

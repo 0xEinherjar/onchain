@@ -91,6 +91,7 @@ function logout() {
   justify-content: space-between;
   display: none;
   height: 60px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
 }
 .sidebar-mobile__button {
   height: 40px;

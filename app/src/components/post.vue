@@ -145,7 +145,7 @@ onMounted(() => {
 .c-post--principal {
   border: 1px solid rgba(255, 255, 255, 0.12);
   background-color: var(--bg-color-secondary);
-  border-radius: 24px;
+  border-radius: 12px;
   padding: 32px;
 }
 .c-post__id {

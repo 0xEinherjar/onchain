@@ -99,10 +99,9 @@ watch(isSuccess, async (newIsSuccess) => {
   gap: 10px;
   display: flex;
   align-items: flex-start;
-  border-bottom: 1px solid var(--color-border-primary);
-  border-top: 1px solid var(--color-border-primary);
-  padding-top: 24px;
-  padding-bottom: 24px;
+  border: 1px solid var(--color-border-primary);
+  padding: 24px;
+  border-radius: 12px;
 }
 .c-create-comment__counter {
   height: 32px;
@@ -148,5 +147,13 @@ watch(isSuccess, async (newIsSuccess) => {
 }
 .c-create-comment__send {
   padding: 4px 0 4px 4px;
+}
+@media (width < 600px) {
+  .c-create-comment {
+    padding-inline: 0;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
 }
 </style>

@@ -15,6 +15,7 @@ import {
   CreateComment,
   Comment,
   Post,
+  Issues,
 } from "../components";
 import { useComments } from "../composables/useComments.js";
 const postData = ref({});
@@ -73,6 +74,7 @@ onBeforeMount(async () => {
   <main class="main">
     <div class="u-flex-line-between">
       <back/>
+      <issues/>
     </div>
     <div v-if="!isLoading && hasFound" class="l-page-post">
       <div class="l-page-post__post">

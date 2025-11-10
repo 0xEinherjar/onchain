@@ -21,7 +21,8 @@ import {
   ModalReport,
   ProfilePlaceholder,
   SidebarMobile,
-  ButtonFollowModulePaid
+  ButtonFollowModulePaid,
+  Issues
 } from "../components";
 import { useProfile } from "../composables/useProfile.js";
 import { usePublication } from "../composables/usePublication.js";
@@ -159,21 +160,7 @@ onBeforeMount(async () => {
   <main class="main">
     <div class="u-flex-line-between">
       <back/>
-      <div class="dropdown">
-        <icon iconClass="c-icon--small" name="flag"/>
-        <div class="dropdown__group">
-          <div class="dropdown__menu">
-            <div class="dropdown__item u-flex-line">
-              <icon iconClass="c-icon--small" name="directBox"/>
-              Send app feedback
-            </div>
-            <div class="dropdown__item u-flex-line">
-              <icon iconClass="c-icon--small" name="flag"/>
-              Report legal issue
-            </div>
-          </div>
-        </div>
-      </div>
+      <issues/>
     </div>
     <template v-if="!isLoadingProfile">
       <template v-if="profile">

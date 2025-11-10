@@ -45,3 +45,4 @@ export { default as CardUserPost } from "./card-user-post.vue";
 export { default as ModalFaucet } from "./modal-faucet.vue";
 export { default as ButtonFollowModulePaid } from "./button-follow-module-paid.vue";
 export { default as PanelCreateUser } from "./panel-create-user.vue";
+export { default as Issues } from "./issues.vue";
