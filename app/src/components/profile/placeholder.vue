@@ -16,10 +16,10 @@ const { isAddress, truncateAddress } = useUtils();
   <div v-if="props.type == 'UserBanned'" class="c-profile-placeholder__info u-flex-line-center">
     <icon iconClass="c-icon" name="info1"/>
     <p class="c-profile-placeholder__info-text-desktop">
-      Banned profile. For more information, please visit the <a class="c-profile-placeholder__info-link u-font-500" href="#">voting</a> page.
+      Banned profile. For more information, please visit the <a class="c-profile-placeholder__info-link u-font-500" href="https://onchain-vote.netlify.app/#/">voting</a> page.
     </p>
     <p class="c-profile-placeholder__info-text-mobile">
-      <a class="c-profile-placeholder__info-link u-font-500" href="#">Banned profile.</a>
+      <a class="c-profile-placeholder__info-link u-font-500" href="https://onchain-vote.netlify.app/#/">Banned profile.</a>
     </p>
   </div>
 </template>

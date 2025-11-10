@@ -115,7 +115,7 @@ onMounted(() => {
     <div v-else class="assessment__card-name">{{ props.profileName }}</div>
   </header>
   <div class="assessment__card-buttons u-flex-line">
-    <a v-if="props.state != 4" target="_blank" :href="`https://website.app/#/${props.profileHandle || props.profile}`" class="assessment__card-button u-flex-line-center assessment__card-button--default" type="button">View</a>
+    <a v-if="props.state != 4" target="_blank" :href="`https://onchain-vote.netlify.app/#/${props.profileHandle || props.profile}`" class="assessment__card-button u-flex-line-center assessment__card-button--default" type="button">View</a>
     <button v-if="state == 2" class="assessment__card-button u-flex-line-center assessment__card-button--active" type="button">Active</button>
     <button v-if="state == 1" class="assessment__card-button u-flex-line-center assessment__card-button--pending" type="button">Pending</button>
     <button v-if="state == 5" class="assessment__card-button u-flex-line-center assessment__card-button--reestablished" type="button">Reestablished</button>
