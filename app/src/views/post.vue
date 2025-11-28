@@ -99,7 +99,7 @@ onBeforeMount(async () => {
           :isPage="true"
         />
         <create-comment v-if="account.isConnected" @new-comment="onComment" :id="postData.postId"/>
-        <div v-else class="l-page-post__line"></div>
+        <div v-if="!account.isConnected && comments.length" class="l-page-post__line"></div>
         <template v-if="comments.length">
           <template v-for="item in comments">
             <comment :date="item.createdAt" :text="item.text" :name="item.authorName" :avatar="item.authorAvatar"/>

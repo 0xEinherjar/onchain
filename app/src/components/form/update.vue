@@ -161,14 +161,14 @@ onMounted(() => {
         <div v-else class="setting__form-picture--placeholder"></div>
         <div class="setting__form-attachment-text">Avatar</div>
         <label class="setting__form-attachment-label u-pointer" for="avatar">Choose Avatar</label>
-        <input @change="onFileChange" class="is-hidden" type="file" name="avatar" id="avatar" accept="image/png, image/jpeg">
+        <input @change="onFileChange" class="is-hidden" type="file" name="avatar" id="avatar" accept="image/*">
       </div>
       <div class="setting__form-attachment-field u-flex-line">
         <img v-if="bannerURL || user.banner" :src="bannerURL || user.banner" class="setting__form-picture">
         <div v-else class="setting__form-picture--placeholder"></div>
         <div class="setting__form-attachment-text">Banner</div>
         <label class="setting__form-attachment-label u-pointer" for="banner">Choose Banner</label>
-        <input @change="onFileChange" class="is-hidden" type="file" name="banner" id="banner" accept="image/png, image/jpeg">
+        <input @change="onFileChange" class="is-hidden" type="file" name="banner" id="banner" accept="image/*">
       </div>
     </div>
   </section>
