@@ -1,7 +1,7 @@
 <script setup></script>
 <!-- prettier-ignore -->
 <template>
-  <button type="button" class="c-chain"><span class=""></span>Base Sepolia</button>
+  <button type="button" class="c-chain"><span class=""></span>Arc Testnet</button>
 </template>
 <style>
 .c-chain {

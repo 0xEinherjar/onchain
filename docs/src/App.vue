@@ -4,7 +4,7 @@
     <section class="doc__section">
       <h3 class="doc__title">Overview</h3>
       <p class="doc__paragraph">
-        Onchain is a Web3 social media platform implemented on the Base Testnet,
+        Onchain is a Web3 social media platform implemented on the Arc Testnet,
         similar to X (formerly Twitter) and Threads. Unlike these platforms,
         Onchain does not use central servers for its operations. All
         interactions and activities within the platform are managed by Smart
@@ -294,7 +294,7 @@ This standardization ensures compatibility and makes it easier for community dev
         </li>
         <li>
           <strong>Wrapped Bitcoin (WBTC):</strong> Representation of Bitcoin on
-          the Base Testnet.
+          the Arc Testnet.
         </li>
       </ul>
     </section>
