@@ -10,7 +10,7 @@ export const config = createConfig({
   connectors: [metaMask(), binanceWallet(), coinbaseWallet()],
   transports: {
     [arcTestnet.id]: http(
-      "https://little-dawn-log.arc-testnet.quiknode.pro/e126f498cf283479c141af176f2327cf2a032e8b/"
+      "https://rpc.testnet.arc.network"
     ),
   },
 });
